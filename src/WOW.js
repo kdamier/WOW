@@ -278,7 +278,7 @@ export default class WOW {
   resetStyle() {
     for (let i = 0; i < this.boxes.length; i++) {
       const box = this.boxes[i];
-      box.style.visibility = 'visible';
+      box.style.opacity = '1';
     }
     return undefined;
   }
@@ -292,7 +292,7 @@ export default class WOW {
 
   customStyle(box, hidden, duration, delay, iteration) {
     if (hidden) { this.cacheAnimationName(box); }
-    box.style.visibility = hidden ? 'hidden' : 'visible';
+    box.style.opacity = hidden ? '0' : '1';
 
     if (duration) { this.vendorSet(box.style, { animationDuration: duration }); }
     if (delay) { this.vendorSet(box.style, { animationDelay: delay }); }
