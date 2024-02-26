@@ -1,10 +1,18 @@
 /*global module:false*/
+
 module.exports = function(grunt) {
-  mainTasks = ['coffee', 'growl:coffee', 'jasmine', 'growl:jasmine', 'uglify']
+  require('load-grunt-tasks')(grunt);
+  mainTasks = [
+    'eslint', 'babel', 'coffee', 'growl:coffee', 'uglify', 'jasmine',
+    'growl:jasmine',
+  ]
 
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    eslint: {
+      target: ['src/WOW.js']
+    },
     uglify: {
       dist: {
         files: {
@@ -12,24 +20,29 @@ module.exports = function(grunt) {
         }
       },
       options: {
-        banner : '/*! <%= pkg.title %> - v<%= pkg.version %> - ' +
+        banner : '/*! <%= pkg.title %> wow.js - v<%= pkg.version %> - ' +
           '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
           '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-          '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-          '*/',
+          '* Copyright (c) <%= grunt.template.today("yyyy") %> Thomas Grainger;' +
+          ' Licensed <%= pkg.license %> */',
         report: 'gzip'
       }
     },
-    coffee : {
-      plugin : {
-        files: [{
-          expand: true,
-          cwd: 'src/',
-          src: '*.coffee',
-          dest: 'dist/',
-          ext: '.js'
-        }]
+    babel : {
+      options : {
+        presets: ['es2015', 'stage-1'],
+        plugins: [
+          'add-module-exports',
+          "transform-es2015-modules-umd"
+        ]
       },
+      dist: {
+        files: {
+          'dist/wow.js': 'src/WOW.js'
+        }
+      }
+    },
+    coffee : {
       specs : {
         files: [{
           expand: true,
@@ -50,7 +63,7 @@ module.exports = function(grunt) {
       }
     },
     jasmine : {
-      src     : ['spec/javascripts/libs/*.js', 'dist/wow.js'],
+      src     : ['spec/javascripts/libs/*.js', 'dist/wow.min.js'],
       options : {
         specs   : 'spec/javascripts/**/*.js',
         helpers : 'spec/javascripts/helpers/**/*.js'
@@ -75,15 +88,7 @@ module.exports = function(grunt) {
     }
   });
 
-  // Lib tasks.
-  grunt.loadNpmTasks('grunt-growl');
-  grunt.loadNpmTasks('grunt-contrib-jasmine');
-  grunt.loadNpmTasks('grunt-contrib-coffee');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-
   grunt.registerTask('default', mainTasks);
-
   // Travis CI task.
-  grunt.registerTask('travis', ['coffee', 'jasmine']);
+  grunt.registerTask('travis', ['eslint', 'babel', 'coffee', 'uglify', 'jasmine']);
 };

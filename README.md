@@ -1,39 +1,30 @@
-# WOW.js [![Build Status](https://secure.travis-ci.org/matthieua/WOW.svg?branch=master)](http://travis-ci.org/matthieua/WOW)
+# WOW.js [![Build Status](https://secure.travis-ci.org/graingert/WOW.svg?branch=master)](http://travis-ci.org/graingert/WOW)
 
 Reveal CSS animation as you scroll down a page.
 By default, you can use it to trigger [animate.css](https://github.com/daneden/animate.css) animations.
 But you can easily change the settings to your favorite animation library.
 
 Advantages:
+- 100% MIT Licensed, not GPL keep your code yours.
+- Naturally Caffeine free
 - Smaller than other JavaScript parallax plugins, like Scrollorama (they do fantastic things, but can be too heavy for simple needs)
 - Super simple to install, and works with animate.css, so if you already use it, that will be very fast to setup
 - Fast execution and lightweight code: the browser will like it ;-)
 - You can change the settings - [see below](#advanced-usage)
 
-Follow [@mattdelac_](//twitter.com/mattdelac_) for updates as WOW evolves.
+### [LIVE DEMO ➫](https://graingert.co.uk/WOW/)
 
-### [LIVE DEMO ➫](http://delac.io/WOW/)
-
-
-## Version
-
-1.1.3
-
-## License
-
-### Commercial license
-
-If you want to use WOW.js to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. Purchase a WOW.js Commercial License at [uplabs.com/posts/wow-js-commercial](http://www.uplabs.com/posts/wow-js-commercial?utm_source=wow&utm_medium=pricing&utm_campaign=wow)
-
-### Open source license
-If you are creating an open source application under a license compatible with the GNU GPL license v3, you may use this project under the terms of the GPLv3.
-
+## Live examples
+- [MaterialUp](http://www.materialup.com)
+- [Fliplingo](https://www.fliplingo.com)
+- [Streamline Icons](http://www.streamlineicons.com)
+- [Microsoft Stories](http://www.microsoft.com/en-us/news/stories/garage/)
 
 
 ## Documentation
 
 It just take seconds to install and use WOW.js!
-[Read the documentation ➫](http://delac.io/WOW/docs.html)
+[Read the documentation ➫](https://graingert.co.uk/WOW/docs.html)
 
 ### Dependencies
 - [animate.css](https://github.com/daneden/animate.css)
@@ -43,21 +34,16 @@ It just take seconds to install and use WOW.js!
 - Bower
 
 ```bash
-   bower install wowjs
+   bower install wow-mit
 ```
 
 - NPM
 
 ```bash
-   npm install wowjs
+   npm install wow.js
 ```
 
 ### Basic usage
-In order to hide all elements when they are supposed to be hidden. (Anti Flickering)
-- CSS
-   .wow {
-     visibility: hidden;
-   }
 
 - HTML
 
@@ -115,9 +101,7 @@ effects.
 
 ## Contribute
 
-You're more than welcome to contribute to this project. Please note: your code may be used as part of a commercial product if merged. Be clear about what license applies to your patch. The MIT license or public domain unlicense are permissive, and allow integration of your patch into this project as part of a commercial product.
-
-The library is written in CoffeeScript, please update `wow.coffee` file.
+The library is transpiled using Babel, please update `wow.js` file.
 
 We use grunt to compile and minify the library:
 
@@ -137,20 +121,20 @@ Enjoy!
 
 ## Bug tracker
 
-If you find a bug, please report it [here on Github](https://github.com/matthieua/WOW/issues)!
+If you find a bug, please report it [here on Github](https://github.com/graingert/WOW/issues)!
 
 ## Developer
 
-Developed by Matt Delac, [delac.io](https://www.delac.io/)
+Originally Developed by Matthieu Aussaguel, [mynameismatthieu.com](http://mynameismatthieu.com)
+Forked to remain under the MIT license by Thomas Grainger, https://graingert.co.uk
 
-+ [@mattdelac](//twitter.com/mattdelac_)
-+ [Github Profile](//github.com/matthieua)
++ [Github Profile](//github.com/graingert)
 
 ## Contributors
 
 Thanks to everyone who has contributed to the project so far:
 
 - Attila Oláh - [@attilaolah](//twitter.com/attilaolah) - [Github Profile](//github.com/attilaolah)
-- [and many others](//github.com/matthieua/WOW/graphs/contributors)
+- [and many others](//github.com/graingert/WOW/graphs/contributors)
 
 Initiated and designed by [Vincent Le Moign](//www.webalys.com/), [@webalys](//twitter.com/webalys)
