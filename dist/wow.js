@@ -350,7 +350,7 @@
       results = [];
       for (j = 0, len = ref.length; j < len; j++) {
         box = ref[j];
-        results.push(box.style.visibility = 'visible');
+        results.push(box.style.opacity = '1');
       }
       return results;
     };
@@ -367,7 +367,7 @@
       if (hidden) {
         this.cacheAnimationName(box);
       }
-      box.style.visibility = hidden ? 'hidden' : 'visible';
+      box.style.opacity = hidden ? '0' : '1';
       if (duration) {
         this.vendorSet(box.style, {
           animationDuration: duration
